@@ -6,6 +6,7 @@ ApplicationWindow {
     height: 480
     visible: true
     title: qsTr("Scroll")
+    //console.log("test");
 
     ScrollView {
         anchors.fill: parent
@@ -13,10 +14,11 @@ ApplicationWindow {
         ListView {
             id: listView
             width: parent.width
-            model: 20
+            model: log.list
             delegate: ItemDelegate {
-                text: "Item " + (index + 1)
-                width: listView.width
+           Text {
+           text: modelData;
+           }
             }
         }
     }

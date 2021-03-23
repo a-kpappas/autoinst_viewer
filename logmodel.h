@@ -3,17 +3,23 @@
 
 #include <QObject>
 #include <QString>
+#include <QStringListModel>
 #include <qqml.h>
-class LogModel
+
+class LogModel : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QStringList data READ);
-    QML_ELEMENT
+    Q_PROPERTY(QStringList list READ data);
+
+    //QML_ELEMENT
 
 public:
     LogModel();
+    QStringList data(){return _data;};
+    QString test(){return _data.first();}
 private:
-    QStringList data;
+    QStringList _data;
+    QString t;
 };
 
 #endif // LOGMODEL_H
